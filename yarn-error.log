@@ -1,0 +1,60 @@
+Arguments: 
+  /usr/local/Cellar/node/16.7.0/bin/node /usr/local/Cellar/yarn/1.22.17_2/libexec/bin/yarn.js
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.7.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@conet-project%2fseguro-gateway: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.17_2/libexec/lib/cli.js:67029:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.22.17_2/libexec/lib/cli.js:140883:22)
+      at Request.emit (node:events:394:28)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.22.17_2/libexec/lib/cli.js:141855:10)
+      at Request.emit (node:events:394:28)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.22.17_2/libexec/lib/cli.js:141777:12)
+      at Object.onceWrapper (node:events:513:28)
+      at IncomingMessage.emit (node:events:406:35)
+      at endReadableNT (node:internal/streams/readable:1348:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "name": "seguro-platform-release",
+    "version": "0.46.0",
+    "description": "Release repository and project for Seguro Platform",
+    "main": "index.js",
+    "repository": "https://github.com/CoNET-project/seguro-platform-release.git",
+    "author": "Kloak Information Technologies Inc. <info@connettech.ca>",
+    "license": "UNLICENSED",
+    "scripts": {
+      "build": "electron-builder --config ./electron-builder-config.js",
+      "build:mac": "yarn run build --macos",
+      "build:win": "yarn run build --win --x64 --ia32",
+      "build:lin": "yarn run build"
+    },
+    "dependencies": {
+      "@conet-project/seguro-gateway": "^0.14.3",
+      "get-port": "^6.0.0"
+    },
+    "devDependencies": {
+      "dotenv": "^10.0.0",
+      "electron": "^16.0.6",
+      "electron-builder": "^22.14.5",
+      "electron-notarize": "^1.1.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

@@ -1,0 +1,25 @@
+{
+  "name": "seguro-platform-release",
+  "version": "0.46.0",
+  "description": "Release repository and project for Seguro Platform",
+  "main": "index.js",
+  "repository": "https://github.com/CoNET-project/seguro-platform-release.git",
+  "author": "Kloak Information Technologies Inc. <info@connettech.ca>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "electron-builder --config ./electron-builder-config.js",
+    "build:mac": "yarn run build --macos",
+    "build:win": "yarn run build --win --x64 --ia32",
+    "build:lin": "yarn run build"
+  },
+  "dependencies": {
+    "@conet-project/seguro-gateway": "^0.14.3",
+    "get-port": "^6.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "electron": "^16.0.6",
+    "electron-builder": "^22.14.5",
+    "electron-notarize": "^1.1.1"
+  }
+}
