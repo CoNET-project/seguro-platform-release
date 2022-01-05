@@ -2,7 +2,7 @@
   "name": "seguro-platform-release",
   "version": "0.46.0",
   "description": "Release repository and project for Seguro Platform",
-  "main": "index.js",
+  "main": "src/electron/electron.js",
   "repository": "https://github.com/CoNET-project/seguro-platform-release.git",
   "author": "Kloak Information Technologies Inc. <info@connettech.ca>",
   "license": "UNLICENSED",
