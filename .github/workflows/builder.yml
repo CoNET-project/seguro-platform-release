@@ -99,10 +99,7 @@ jobs:
 
       - name: Package for Windows
         run: yarn build:win
-
-      - name: View directory
-        run: ls -R
-
+        
       - name: Get version
         id: version
         run: echo ::set-output name=version::$(node -p -e "require('./package.json').version")
