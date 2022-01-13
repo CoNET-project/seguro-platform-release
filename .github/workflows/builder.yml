@@ -99,7 +99,7 @@ jobs:
 
       - name: Package for Windows
         run: yarn build:win
-        
+
       - name: Get version
         id: version
         run: echo ::set-output name=version::$(node -p -e "require('./package.json').version")
@@ -174,41 +174,53 @@ jobs:
         with:
           name: Seguro-${{steps.version.outputs.version}}.deb
           path: builds/
-
+          
       - name: Release
         id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: marvinpinto/action-automatic-releases@latest
         with:
-          draft: false
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           prerelease: false
-          release_name: ${{steps.version.outputs.version}}
-          tag_name: ${{github.ref}}
-
-      - name: Upload MacOS Package
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: builds/Seguro-${{steps.version.outputs.version}}.dmg
-          asset_name: Seguro-${{steps.version.outputs.version}}.dmg
-          asset_content_type: application/x-apple-diskimage
-
-      - name: Upload Windows Package
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: builds/Seguro-${{steps.version.outputs.version}}.exe
-          asset_name: Seguro-${{steps.version.outputs.version}}.exe
-          asset_content_type: application/octet-stream
-
-      - name: Upload Linux Package
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: builds/Seguro-${{steps.version.outputs.version}}.deb
-          asset_name: Seguro-${{steps.version.outputs.version}}.deb
-          asset_content_type: application/vnd.debian.binary-package
+          automatic_release_tag: latest
+          title: Release v${{steps.version.outputs.version}}
+          files: |
+            builds/Seguro-${{steps.version.outputs.version}}.dmg
+            builds/Seguro-${{steps.version.outputs.version}}.exe
+            builds/Seguro-${{steps.version.outputs.version}}.deb
+#      - name: Release
+#        id: create_release
+#        uses: actions/create-release@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          draft: false
+#          prerelease: false
+#          release_name: ${{steps.version.outputs.version}}
+#          tag_name: ${{github.ref}}
+#
+#      - name: Upload MacOS Package
+#        uses: actions/upload-release-asset@v1
+#        with:
+#          upload_url: ${{ steps.create_release.outputs.upload_url }}
+#          asset_path: builds/Seguro-${{steps.version.outputs.version}}.dmg
+#          asset_name: Seguro-${{steps.version.outputs.version}}.dmg
+#          asset_content_type: application/x-apple-diskimage
+#
+#      - name: Upload Windows Package
+#        uses: actions/upload-release-asset@v1
+#        with:
+#          upload_url: ${{ steps.create_release.outputs.upload_url }}
+#          asset_path: builds/Seguro-${{steps.version.outputs.version}}.exe
+#          asset_name: Seguro-${{steps.version.outputs.version}}.exe
+#          asset_content_type: application/octet-stream
+#
+#      - name: Upload Linux Package
+#        uses: actions/upload-release-asset@v1
+#        with:
+#          upload_url: ${{ steps.create_release.outputs.upload_url }}
+#          asset_path: builds/Seguro-${{steps.version.outputs.version}}.deb
+#          asset_name: Seguro-${{steps.version.outputs.version}}.deb
+#          asset_content_type: application/vnd.debian.binary-package
 
 
 
