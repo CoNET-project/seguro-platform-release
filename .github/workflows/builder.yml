@@ -188,7 +188,6 @@ jobs:
             builds/Seguro-${{steps.version.outputs.version}}.exe
             builds/Seguro-${{steps.version.outputs.version}}.deb
             
-            
 #      - name: Release
 #        id: create_release
 #        uses: actions/create-release@v1
