@@ -174,7 +174,7 @@ jobs:
         with:
           name: Seguro-${{steps.version.outputs.version}}.deb
           path: builds/
-
+          
       - name: Release
         id: create_release
         uses: marvinpinto/action-automatic-releases@latest
@@ -187,6 +187,8 @@ jobs:
             builds/Seguro-${{steps.version.outputs.version}}.dmg
             builds/Seguro-${{steps.version.outputs.version}}.exe
             builds/Seguro-${{steps.version.outputs.version}}.deb
+            
+            
 #      - name: Release
 #        id: create_release
 #        uses: actions/create-release@v1
