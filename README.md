@@ -5,7 +5,7 @@
 - Clean up `seguro-platform` project.
 - Add build icons for Windows, MacOS and Linux.
 - Remove redundant files from build package.
-- 
+
 ### Release v0.46.0
 - Repository creation.
 - Initial commit.
