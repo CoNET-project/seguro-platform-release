@@ -174,7 +174,7 @@ jobs:
         with:
           name: Seguro-${{steps.version.outputs.version}}.deb
           path: builds/
-          
+
       - name: Release
         id: create_release
         uses: marvinpinto/action-automatic-releases@latest
@@ -182,7 +182,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           prerelease: false
           automatic_release_tag: latest
-          title: Release v${{steps.version.outputs.version}}
+          title: v${{steps.version.outputs.version}}
           files: |
             builds/Seguro-${{steps.version.outputs.version}}.dmg
             builds/Seguro-${{steps.version.outputs.version}}.exe
