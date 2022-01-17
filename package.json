@@ -13,7 +13,7 @@
     "build:lin": "yarn run build"
   },
   "dependencies": {
-    "@conet-project/seguro-gateway": "^0.14.3",
+    "@conet-project/seguro-gateway": "0.15.2",
     "get-port": "^6.0.0"
   },
   "devDependencies": {
