@@ -1,5 +1,14 @@
 # Seguro Platform Release Repository
 
+### Release v0.49.0
+- Verification integration.
+- Add generic verification error and localization.
+- Add delete passcode container button on `unlockScreen`.
+- Add additional localization across application.
+- Onboarding view switch statement.
+- Minor adjustments to styles and flow of onboarding/unlocking.
+- Fix issue with having container but not verified, changed flow accordingly.
+
 ### Release v0.48.0
 - Minor style changes.
 - Verification integration.
