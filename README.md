@@ -1,5 +1,9 @@
 # Seguro Platform Release Repository
 
+### Release v0.49.1
+- Style fixes.
+- Put back original unlock input for non-touch devices.
+
 ### Release v0.49.0
 - Verification integration.
 - Add generic verification error and localization.
