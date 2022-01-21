@@ -1,6 +1,6 @@
 {
   "name": "seguro-platform-release",
-  "version": "0.49.0",
+  "version": "0.49.1",
   "description": "Release repository and project for Seguro Platform",
   "main": "src/electron/electron.js",
   "repository": "https://github.com/CoNET-project/seguro-platform-release.git",
