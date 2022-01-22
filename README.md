@@ -1,5 +1,9 @@
 # Seguro Platform Release Repository
 
+### Release v0.50.0
+- Electron `window.js` fix for minimized application.
+- Minor CSS changes (Will need to address completely)
+
 ### Release v0.49.1
 - Style fixes.
 - Put back original unlock input for non-touch devices.
