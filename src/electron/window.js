@@ -5,9 +5,7 @@ const isDevelopmentMode = process.env.NODE_ENV === 'development'
 let mainWindow
 let mobileWindow
 
-const createWindow = async ({
-                                clientServerPort
-                            }) => {
+const createWindow = async ({clientServerPort}) => {
     await app.whenReady()
 
     mainWindow = new BrowserWindow({

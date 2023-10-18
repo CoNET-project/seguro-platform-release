@@ -1,8 +1,8 @@
 require('dotenv').config()
 
 const config = {
-    appId: "app.kloak.seguro",
-    productName: "Seguro",
+    appId: "app.conet.platform",
+    productName: "CONET",
     compression: "maximum",
     files: [
         "**/*",
@@ -24,12 +24,12 @@ const config = {
     ],
     nsis: {
         oneClick: false,
-        installerIcon: "public/seguro.ico"
+        installerIcon: "public/conet.png"
     },
     win: {
-        icon: "public/seguro.ico",
+        icon: "public/CoNET.png",
         target: "nsis",
-        artifactName: "Seguro-${version}.exe"
+        artifactName: "CONET-${version}.exe"
     },
     mac: {
         category: "public.app-category.utilities",
@@ -37,7 +37,7 @@ const config = {
         entitlementsInherit: "build-tools/entitlements.mac.plist",
         hardenedRuntime: true,
         gatekeeperAssess: false,
-        icon: "public/seguro.icns",
+        icon: "public/CoNET.png",
     },
     dmg: {
         backgroundColor: "#ffffff",
@@ -55,11 +55,11 @@ const config = {
         ]
     },
     linux: {
-        artifactName: "Seguro-${version}.deb",
+        artifactName: "CONET-${version}.deb",
         target: [
             "deb"
         ],
-        icon: "public/seguro.icns",
+        icon: "public/CoNET.png",
     },
     afterSign: "build-tools/notarize.js"
 }
