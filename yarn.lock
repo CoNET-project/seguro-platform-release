@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/7zip-bin/-/7zip-bin-5.1.1.tgz#9274ec7460652f9c632c59addf24efb1684ef876"
   integrity sha512-sAP4LldeWNz0lNzmTird3uWfFDWWTeg6V/MsmyyLR9X1idwKBWIgt/ZvinqQldJm3LecKEs1emkbquO6PCiLVQ==
 
-"@conet.project/conet-gateway@0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@conet.project/conet-gateway/-/conet-gateway-0.0.7.tgz#dd49cc7f2d92ef617e36905808b52b3586257e88"
-  integrity sha512-1q9+Hmkq2KF2vEtvzFYDhDnePX/9uCd2YnQ3dT0HHWU/Hi+PcR+UkFcAvimL97bfUMqREHJFpoZ08M9QL7og1A==
+"@conet.project/conet-gateway@0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@conet.project/conet-gateway/-/conet-gateway-0.0.8.tgz#89cd49cd8fd753ac2b4f192546b0fa45b4f42405"
+  integrity sha512-Wq41BPZrT8sFNbGqvYWqNYo9FpbjwY6p/MtkwO3xCV1B9IbaHktjGnE/52k8N7l+s+UOr2Jtw5JeZ8boeCgrrw==
   dependencies:
     async "^3.2.4"
     colors "^1.4.0"
@@ -53,7 +53,7 @@
   optionalDependencies:
     global-agent "^3.0.0"
 
-"@electron/notarize@2.1.0":
+"@electron/notarize@2.1.0", "@electron/notarize@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@electron/notarize/-/notarize-2.1.0.tgz#76aaec10c8687225e8d0a427cc9df67611c46ff3"
   integrity sha512-Q02xem1D0sg4v437xHgmBLxI2iz/fc0D4K7fiVWHa/AnW8o7D751xyKNXgziA6HrTOme9ul1JfWN5ark8WH1xA==
@@ -790,10 +790,10 @@ electron-publish@24.5.0:
     lazy-val "^1.0.5"
     mime "^2.5.2"
 
-electron@^27.0.0:
-  version "27.0.0"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-27.0.0.tgz#bb6c45881e531b2ec1c7cc46c47aba773f38ee14"
-  integrity sha512-mr3Zoy82l8XKK/TgguE5FeNeHZ9KHXIGIpUMjbjZWIREfAv+X2Q3vdX6RG0Pmi1K23AFAxANXQezIHBA2Eypwg==
+electron@^27.0.1:
+  version "27.0.1"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-27.0.1.tgz#809bbe5363f414224789cfa1f3d7237906f71b9e"
+  integrity sha512-AjDGgpf2thNxVXoNqEG+0GCUK4upAEa2B+IoM5Yk9YrOLd6uUOEMfGI9rhPtj+jC14iKOvBdefY2uAzcDC0qng==
   dependencies:
     "@electron/get" "^2.0.0"
     "@types/node" "^18.11.18"

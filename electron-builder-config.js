@@ -37,7 +37,7 @@ const config = {
         entitlementsInherit: "build-tools/entitlements.mac.plist",
         hardenedRuntime: true,
         gatekeeperAssess: false,
-        icon: "public/CoNET.png",
+        icon: "public/CoNET.png"
     },
     dmg: {
         backgroundColor: "#ffffff",
@@ -61,7 +61,8 @@ const config = {
         ],
         icon: "public/CoNET.png",
     },
-    afterSign: "build-tools/notarize.js"
+    afterSign: "build-tools/notarize.js",
+    
 }
 
 module.exports = config

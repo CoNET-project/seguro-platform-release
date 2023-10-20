@@ -11,7 +11,7 @@ exports.default = async function notarizing(context) {
     const appName = context.packager.appInfo.productFilename;
     try {
         return await notarize({
-            appBundleId: 'app.kloak.seguro',
+            appBundleId: 'app.conet.platform',
             appPath: `${appOutDir}/${appName}.app`,
             appleId: process.env.NOTARIZE_APPLE_ID,
             appleIdPassword: process.env.NOTARIZE_APPLE_PASS,
