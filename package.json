@@ -1,6 +1,6 @@
 {
   "name": "seguro-platform-release",
-  "version": "0.50.2",
+  "version": "0.60.0",
   "description": "Release repository and project for Seguro Platform",
   "main": "src/electron/electron.js",
   "repository": "https://github.com/CoNET-project/seguro-platform-release.git",
@@ -15,7 +15,7 @@
     "start": "electron ."
   },
   "dependencies": {
-    "@conet.project/conet-gateway": "0.0.8",
+    "@conet.project/conet-gateway": "0.0.10",
     "get-port": "^7.0.0",
     "openpgp":"^5.10.2"
   },

@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/7zip-bin/-/7zip-bin-5.1.1.tgz#9274ec7460652f9c632c59addf24efb1684ef876"
   integrity sha512-sAP4LldeWNz0lNzmTird3uWfFDWWTeg6V/MsmyyLR9X1idwKBWIgt/ZvinqQldJm3LecKEs1emkbquO6PCiLVQ==
 
-"@conet.project/conet-gateway@0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@conet.project/conet-gateway/-/conet-gateway-0.0.8.tgz#89cd49cd8fd753ac2b4f192546b0fa45b4f42405"
-  integrity sha512-Wq41BPZrT8sFNbGqvYWqNYo9FpbjwY6p/MtkwO3xCV1B9IbaHktjGnE/52k8N7l+s+UOr2Jtw5JeZ8boeCgrrw==
+"@conet.project/conet-gateway@0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@conet.project/conet-gateway/-/conet-gateway-0.0.10.tgz#907eae8ddc422cd2f5c50d7bf3094681e8e5e544"
+  integrity sha512-lfc2hTxN7EN3UE0pKoWBcFxOelLUd7A91RfZo7gFffib9MRyT2jvYLEyBJ4IPbPky0l0fD/UEHAkpPQrRlEZag==
   dependencies:
     async "^3.2.4"
     colors "^1.4.0"
