@@ -6,6 +6,12 @@ let mainWindow
 let mobileWindow
 
 const createWindow = async ({clientServerPort}) => {
+
+    const gotTheLock = app.requestSingleInstanceLock()
+    if ( ! gotTheLock ) {
+		return app.quit()
+    }
+
     await app.whenReady()
 
     mainWindow = new BrowserWindow({
@@ -23,23 +29,30 @@ const createWindow = async ({clientServerPort}) => {
 
     const clientServerUrl = `http://localhost:${clientServerPort}`
 
-    try {
-        console.log(`loading client index from ${clientServerUrl}`)
-        await mainWindow.loadURL(clientServerUrl)
-        if (isDevelopmentMode) {
-            mainWindow.webContents.openDevTools()
-            await mobileWindow.loadURL(clientServerUrl)
-            mobileWindow.webContents.openDevTools()
+
+        try {
+            console.log(`loading client index from ${clientServerUrl}`)
+            await mainWindow.loadURL(clientServerUrl)
+            if (isDevelopmentMode) {
+                mainWindow.webContents.openDevTools()
+                await mobileWindow.loadURL(clientServerUrl)
+                mobileWindow.webContents.openDevTools()
+            }
+        } catch {
+            console.error('failed to load client index')
+            process.exit(1)
         }
-    } catch {
-        console.error('failed to load client index')
-        process.exit(1)
-    }
+    
+
+
+    app.on('second-instance', ( event, commandLine, workingDirectory) => {
+		mainWindow.restore()
+	})
 
     app.on('window-all-closed', () => {
-        if (process.platform !== 'darwin') {
+        // if (process.platform !== 'darwin') {
             app.quit()
-        }
+        // }
     })
 
     app.on('activate', () => {
@@ -53,6 +66,10 @@ const createWindow = async ({clientServerPort}) => {
     })
 
     mainWindow.show()
+
+    mainWindow.once('close', () => {
+        app.quit()
+    })
 
     if (isDevelopmentMode) {
         mobileWindow.show()
