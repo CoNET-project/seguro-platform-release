@@ -15,8 +15,8 @@ const createWindow = async ({clientServerPort}) => {
     await app.whenReady()
 
     mainWindow = new BrowserWindow({
-        width: 1280,
-        height: 720,
+        width: 640,
+        height: 480,
         show: false,
     })
 
@@ -27,9 +27,7 @@ const createWindow = async ({clientServerPort}) => {
         // resizable: false
     })
 
-    const clientServerUrl = `http://localhost:${clientServerPort}`
-
-
+    const clientServerUrl = `http://localhost:3001/electron/index.html`
         try {
             console.log(`loading client index from ${clientServerUrl}`)
             await mainWindow.loadURL(clientServerUrl)
@@ -43,8 +41,6 @@ const createWindow = async ({clientServerPort}) => {
             process.exit(1)
         }
     
-
-
     app.on('second-instance', ( event, commandLine, workingDirectory) => {
 		mainWindow.restore()
 	})

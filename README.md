@@ -1,4 +1,5 @@
-# Seguro Platform Release Repository
+# CONET Platform Daemon Release Repository
+
 
 ### Release v0.50.0
 - Electron `window.js` fix for minimized application.

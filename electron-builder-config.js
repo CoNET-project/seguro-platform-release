@@ -24,10 +24,10 @@ const config = {
     ],
     nsis: {
         oneClick: false,
-        installerIcon: "public/conet.png"
+        installerIcon: "public/CoNET.ico"
     },
     win: {
-        icon: "public/CoNET.png",
+        icon: "public/CoNET.ico",
         target: "nsis",
         artifactName: "CONET-${version}.exe"
     },
@@ -37,7 +37,7 @@ const config = {
         entitlementsInherit: "build-tools/entitlements.mac.plist",
         hardenedRuntime: true,
         gatekeeperAssess: false,
-        icon: "public/CoNET.png"
+        icon: "public/CONET.ico"
     },
     dmg: {
         backgroundColor: "#ffffff",
@@ -59,7 +59,7 @@ const config = {
         target: [
             "deb"
         ],
-        icon: "public/CoNET.png",
+        icon: "public/CONET.ico",
     },
     afterSign: "build-tools/notarize.js",
     

@@ -1,29 +1,29 @@
 {
-  "name": "seguro-platform-release",
-  "version": "0.60.0",
-  "description": "Release repository and project for Seguro Platform",
-  "main": "src/electron/electron.js",
-  "repository": "https://github.com/CoNET-project/seguro-platform-release.git",
-  "author": "CONET Technologies Inc. <info@conet.network>",
-  "license": "UNLICENSED",
-  "scripts": {
-    "build": "electron-builder --config ./electron-builder-config.js",
-    "build:mac": "yarn run build --macos",
-    "build:win": "yarn run build --win --x64 --ia32",
-    "build:lin": "yarn run build",
-    "buildts": "tsc --project ./tsconfig.json",
-    "start": "electron ."
-  },
-  "dependencies": {
-    "@conet.project/conet-gateway": "0.0.10",
-    "get-port": "^7.0.0",
-    "openpgp":"^5.10.2"
-  },
-  "devDependencies": {
-    "dotenv": "^16.3.1",
-    "electron": "^27.0.1",
-    "electron-builder": "^24.6.4",
-    "electron-notarize": "^1.2.2",
-    "@electron/notarize": "^2.1.0"
-  }
+	"name": "conet-daemon-release",
+	"version": "1.0.0",
+	"description": "Release repository and project for CONET Platform",
+	"main": "src/electron/electron.js",
+	"repository": "https://github.com/CoNET-project/seguro-platform-release.git",
+	"author": "CONET Project. <info@conet.network>",
+	"license": "UNLICENSED",
+	"scripts": {
+		"build": "electron-builder --config ./electron-builder-config.js",
+		"build:mac": "yarn run build --macos",
+		"build:win": "yarn run build --win --x64 --ia32",
+		"build:lin": "yarn run build --linux ",
+		"buildts": "tsc --project ./tsconfig.json",
+		"start": "electron ."
+	},
+	"dependencies": {
+		"@conet.project/conet-proxy": "^0.1.16",
+		"get-port": "^7.1.0",
+		"openpgp": "^5.11.2"
+	},
+	"devDependencies": {
+		"dotenv": "16.4.5",
+		"electron": "^31.0.2",
+		"electron-builder": "^24.13.3",
+		"electron-notarize": "^1.2.2",
+		"@electron/notarize": "^2.3.2"
+	}
 }
