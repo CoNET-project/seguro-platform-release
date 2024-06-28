@@ -27,15 +27,23 @@ const createWindow = async ({clientServerPort}) => {
         // resizable: false
     })
 
+	mobileWindow.webContents.setWindowOpenHandler(({ url }) => {
+		shell.openExternal(url);
+		return { action: 'deny' };
+	})
+
     const clientServerUrl = `http://localhost:3001/electron/index.html`
         try {
             console.log(`loading client index from ${clientServerUrl}`)
-            await mainWindow.loadURL(clientServerUrl)
+            const win = mainWindow.loadURL(clientServerUrl)
+
+			
             if (isDevelopmentMode) {
                 mainWindow.webContents.openDevTools()
                 await mobileWindow.loadURL(clientServerUrl)
                 mobileWindow.webContents.openDevTools()
             }
+
         } catch {
             console.error('failed to load client index')
             process.exit(1)

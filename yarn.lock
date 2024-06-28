@@ -19,10 +19,10 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
-"@conet.project/conet-proxy@^0.1.16":
-  version "0.1.16"
-  resolved "https://registry.yarnpkg.com/@conet.project/conet-proxy/-/conet-proxy-0.1.16.tgz#2cb5d48c1fd9d526ab07a8c0ce6aec081246ed9b"
-  integrity sha512-TzUEtJQc8N7OVDkxm75K3gXlKpApp/PqxmmhtG1gAnplqT7iqcJ6cjTkzEK1nMTnQpTTI3xN+kWTTG4b7A7BhA==
+"@conet.project/conet-proxy@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@conet.project/conet-proxy/-/conet-proxy-0.2.4.tgz#bc08c049ca1af75565492939d2b475cf90976849"
+  integrity sha512-0v2zAJnJeJ5bQoX+OtjN9R8kKdSLRw0llIrLvUWooKnwJJZv3XLWzzCCUTw4321aJvngDHIg13tecdWDWJ78JQ==
   dependencies:
     async "^3.2.5"
     colors "^1.4.0"

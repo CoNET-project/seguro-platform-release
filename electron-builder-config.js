@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const config = {
     appId: "app.conet.platform",
-    productName: "CONET",
+    productName: "CoNET Daemon",
     compression: "maximum",
     files: [
         "**/*",
@@ -37,18 +37,18 @@ const config = {
         entitlementsInherit: "build-tools/entitlements.mac.plist",
         hardenedRuntime: true,
         gatekeeperAssess: false,
-        icon: "public/CONET.ico"
+        icon: "public/CONET512.png"
     },
     dmg: {
-        backgroundColor: "#ffffff",
+		background: 'public/background540.png',
         contents: [
             {
-                x: 110,
-                y: 220
+                x: 130,
+                y: 170
             },
             {
-                x: 420,
-                y: 220,
+                x: 460,
+                y: 165,
                 type: "link",
                 path: "/Applications"
             }

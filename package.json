@@ -15,7 +15,7 @@
 		"start": "electron ."
 	},
 	"dependencies": {
-		"@conet.project/conet-proxy": "^0.1.16",
+		"@conet.project/conet-proxy": "^0.2.4",
 		"get-port": "^7.1.0",
 		"openpgp": "^5.11.2"
 	},
