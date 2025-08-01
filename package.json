@@ -1,6 +1,6 @@
 {
 	"name": "conet-daemon-release",
-	"version": "1.0.0",
+	"version": "1.0.4",
 	"description": "Release repository and project for CONET Platform",
 	"main": "src/electron/electron.js",
 	"repository": "https://github.com/CoNET-project/seguro-platform-release.git",
@@ -15,15 +15,21 @@
 		"start": "electron ."
 	},
 	"dependencies": {
-		"@conet.project/conet-proxy": "^0.2.4",
+		"@conet.project/conet-proxy": "^0.20.0",
+		"eccrypto": "^1.1.6",
+		"electron-log": "^5.4.1",
+		"electron-updater": "^6.6.2",
 		"get-port": "^7.1.0",
-		"openpgp": "^5.11.2"
+		"openpgp": "^6.2.0",
+		"rebuild": "^0.1.2",
+		"sudo-prompt": "^9.2.1",
+		"winreg": "^1.2.5"
 	},
 	"devDependencies": {
-		"dotenv": "16.4.5",
-		"electron": "^31.0.2",
+		"@electron/notarize": "^2.5.0",
+		"dotenv": "^17.2.0",
+		"electron": "^37.2.5",
 		"electron-builder": "^24.13.3",
-		"electron-notarize": "^1.2.2",
-		"@electron/notarize": "^2.3.2"
+		"electron-notarize": "^1.2.2"
 	}
 }

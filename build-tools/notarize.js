@@ -1,7 +1,7 @@
 require('dotenv').config();
 process.env.DEBUG = 'electron-notarize*'
 const {notarize} = require('electron-notarize');
-
+//	xcrun altool --list-apps -u "username" -p "password"
 exports.default = async function notarizing(context) {
     const {electronPlatformName, appOutDir} = context;
     if (electronPlatformName !== 'darwin') {
@@ -13,12 +13,12 @@ exports.default = async function notarizing(context) {
     try {
         await notarize({
 			tool: 'notarytool',
-            appBundleId: 'app.conet.platform',
+            appBundleId: 'CONET-Labs.CONET-Labs-SilentPass',
             appPath: `${appOutDir}/${appName}.app`,
             appleId: process.env.NOTARIZE_APPLE_ID,
             appleIdPassword: process.env.NOTARIZE_APPLE_PASS,
-            ascProvider: '7M7YV9RB5V',
-			teamId: '7M7YV9RB5V'
+            ascProvider: '23YYTMA7YQ',
+			teamId: '23YYTMA7YQ'
         });
 		console.log(`notarize success!`)
     } catch (err) {
