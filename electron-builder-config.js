@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const config = {
     appId: "app.conet.platform",
-    productName: "CoNET Daemon",
+    productName: "Silent-Pass-Proxy",
     compression: "maximum",
     files: [
         "**/*",
@@ -19,15 +19,21 @@ const config = {
         "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json,.yarnrc}",
         "!dist",
         "!src/electron/{.electron.js,.server.js,.window.js}",
-        "!public",
+        "public",
         "!build-tools"
+    ],
+    extraResources:[
+        {
+            from:'public',
+            to:'public'
+        }
     ],
     nsis: {
         oneClick: false,
-        installerIcon: "public/CoNET.ico"
+        installerIcon: "public/512.ico"
     },
     win: {
-        icon: "public/CoNET.ico",
+        icon: "public/512.ico",
         target: "nsis",
         artifactName: "CONET-${version}.exe"
     },
@@ -37,7 +43,8 @@ const config = {
         entitlementsInherit: "build-tools/entitlements.mac.plist",
         hardenedRuntime: true,
         gatekeeperAssess: false,
-        icon: "public/CONET512.png"
+        icon: "public/512.png",
+        target:["zip","dmg"]
     },
     dmg: {
 		background: 'public/background540.png',
@@ -59,10 +66,9 @@ const config = {
         target: [
             "deb"
         ],
-        icon: "public/CONET.ico",
+        icon: "public/256.png",
     },
-    afterSign: "build-tools/notarize.js",
-    
+    afterSign: "build-tools/notarize.js"
 }
 
 module.exports = config
