@@ -1,6 +1,6 @@
 
 
-const {app, BrowserWindow, ipcMain, Tray,Menu} = require('electron');
+const {app, BrowserWindow, ipcMain, Tray,Menu, MenuItem} = require('electron');
 
 // 禁用异步 DNS 特性
 if (process.versions.electron) {
@@ -27,25 +27,48 @@ const path = require('path');
 // // 或者更简单的方法，禁用 c-ares
 // process.env.NODE_OPTIONS = '--dns-result-order=ipv4first';
 
+
+const contextEditMenu = Menu.buildFromTemplate([
+  { role: "undo" }, { role: "redo" }, { type: "separator" },
+  { role: "cut" }, { role: "copy" }, { role: "paste" },
+  { type: "separator" }, { role: "selectAll" },
+]);
+
+// 在 renderer 里发一个 'show-context-edit-menu' IPC 即可弹出
+ipcMain.on("show-context-edit-menu", (e) => {
+    const win = BrowserWindow.fromWebContents(e.sender);
+    if (win) {
+        contextEditMenu.popup({ window: win });
+    } else {
+        // 兜底：没有窗口也允许弹出（Electron 会选当前聚焦窗口）
+        contextEditMenu.popup();
+    }
+});
+
 function setupMinimalMenu() {
-    const appName = `Silent Pass VPN`
-  const template =
-    process.platform === "darwin"
-      ? [
-          {
+    const isMac = process.platform === "darwin";
+    const appName = "Silent Pass VPN";
+
+    const template = isMac
+        ? [
+            // macOS 必有的 App 菜单，最小化为只含“退出”
+            {
             label: appName,
-            submenu: [
-              { role: "quit", label: `Exit/退出 ${appName}` } // macOS 的 App 菜单
-            ]
-          }
+            submenu: [{ role: "quit", label: `Exit/退出 ${appName}` }],
+            },
+            // 内置编辑菜单（Undo/Redo/Cut/Copy/Paste/Select All…，macOS 还带 Speech）
+            { role: "editMenu" },
         ]
-      : [
-          {
+        : [
+            // Win/Linux 可选：保留一个带退出的菜单；如果你想**完全只有 Edit**，删除这个对象即可
+            {
             label: appName,
-            submenu: [{ role: "quit", label: "Exit/退出 " + appName }] // Win/Linux
-          }
+            submenu: [{ role: "quit", label: `Exit/退出 ${appName}` }],
+            },
+            { role: "editMenu" },
         ];
-  Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+
+    Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 }
 
 const isDevelopmentMode = process.env.NODE_ENV === 'development'
@@ -176,8 +199,8 @@ const createWindow = async ({clientServerPort}) => {
         mobileWindow.show()
     }
     //自动更新
-    let updateWindow;
-    updater(updateWindow,mainWindow,'https://download.silentpass.io/release');
+    // let updateWindow;
+    // updater(updateWindow,mainWindow,'https://download.silentpass.io/release');
 
     //双向通信
     runBridge();

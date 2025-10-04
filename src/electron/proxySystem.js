@@ -359,7 +359,37 @@ const setWinProxy=(PROXY_IP,HTTP_PORT,SOCKS_PORT,callback)=>{
     })
 }
 
-const closeWinProxy=async(callback)=>{
+const closeWinProxy = async (callback) => {
+  try {
+    const proxyKey = new Registry({
+      hive: Registry.HKCU,
+      key: '\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings',
+    });
+
+    // 1) 关手动代理
+    await setReg(proxyKey, 'ProxyEnable', Registry.REG_DWORD, 0);
+    // 2) 清空 PAC & 关自动检测
+    await setReg(proxyKey, 'AutoConfigURL', Registry.REG_SZ, '');
+    await setReg(proxyKey, 'AutoDetect', Registry.REG_DWORD, 0);
+    // 3) （可选）也清掉可能残留的服务器和绕行列表，避免某些旧应用读取
+    await setReg(proxyKey, 'ProxyServer', Registry.REG_SZ, '');
+    await setReg(proxyKey, 'ProxyOverride', Registry.REG_SZ, '');
+
+    // 4) 刷新 WinINet 设置
+    try { await refreshWinINet(); } catch {}
+
+    // 5) （可选）重置 WinHTTP
+    try { await resetWinHTTP(); } catch {}
+
+    callback?.(true);
+  } catch (e) {
+    console.error('closeWinProxy error:', e);
+    callback?.(false);
+  }
+}
+
+
+const closeWinProxyOld = async(callback)=>{
     const status=await getWinProxy();
     console.log(status,'status')
     if(status) {
