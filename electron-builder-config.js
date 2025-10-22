@@ -64,11 +64,13 @@ const config = {
     linux: {
         artifactName: "CONET-${version}.deb",
         target: [
-            "deb"
+            "AppImage","deb", "rpm"
         ],
+        category: "Network",
         icon: "public/256.png",
+        artifactName: "${productName}-${version}-${os}-${arch}.${ext}"
     },
-    afterSign: "build-tools/notarize.js"
+    afterSign: "notarize-retry.js"
 }
 
 module.exports = config

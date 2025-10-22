@@ -10,12 +10,12 @@
 		"build": "electron-builder --config ./electron-builder-config.js",
 		"build:mac": "yarn run build --macos --universal",
 		"build:win": "yarn run build --win --x64 --ia32",
-		"build:lin": "yarn run build --linux ",
+		"build:lin": "yarn run build --linux --x64  --arm64",
 		"buildts": "tsc --project ./tsconfig.json",
 		"start": "electron ."
 	},
 	"dependencies": {
-		"@conet.project/conet-proxy":"^1.1.4",
+		"@conet.project/conet-proxy":"^1.1.6",
 		"eccrypto": "^1.1.6",
 		"electron-log": "^5.4.3",
 		"electron-updater": "^6.6.2",
@@ -26,10 +26,9 @@
 		"winreg": "^1.2.5"
 	},
 	"devDependencies": {
-		"@electron/notarize": "^2.5.0",
+		"@electron/notarize": "^3.1.0",
 		"dotenv": "^17.2.3",
-		"electron": "^38.2.1",
-		"electron-builder": "^24.13.3",
-		"electron-notarize": "^1.2.2"
+		"electron": "^38.4.0",
+		"electron-builder": "^24.13.3"
 	}
 }
